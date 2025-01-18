@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Material Symbols */
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  src: url('/icons/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].woff2') format('woff2-variations');
+  font-weight: 100 700; /* Rango de pesos */
+  font-variation-settings: 'FILL' 0, 'GRAD' 0, 'opsz' 24; /* Valores predeterminados */
+}
+
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal; /* O el peso deseado */
+  font-variation-settings: 'FILL' 0, 'GRAD' 0, 'opsz' 24; /* Ajustes iniciales */
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+}
+
+.icon-fill{
+  font-variation-settings: "FILL" 1;
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif, system-ui, -apple-system;
+}

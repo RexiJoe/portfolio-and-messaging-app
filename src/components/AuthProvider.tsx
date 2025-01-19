@@ -15,7 +15,10 @@ export default function AuthProvider({children}:{children: React.ReactNode}){
         })
 
     })
+
+    if(!authState){ return(<div className="text-red-500" >Not Logged</div>) }
+    else{return(<>{children}</>)}
     
 
-    return( authState ? <>{children}</> : <div>not logged</div>)
+    // return( !authState ? <div>not logged</div> : <>{children}</> )
 }

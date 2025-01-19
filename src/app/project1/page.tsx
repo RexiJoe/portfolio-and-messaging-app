@@ -1,4 +1,3 @@
-"use client"
 
 import ChatCard from "@/components/project1 components/ChatCard";
 import WsLists from "@/components/project1 components/WsLists";

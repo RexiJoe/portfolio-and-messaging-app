@@ -16,7 +16,7 @@ export default function ProjectsList(){
     const projects: projectSchema[] = [
         {
             name: "WhatsApp FK",
-            link: "/project1"
+            link: "/WhatsAppFK"
         },
         {
             name: "Project2",

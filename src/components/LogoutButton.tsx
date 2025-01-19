@@ -1,19 +1,27 @@
 "use client"
-import { signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+import { signOut, signInWithPopup, GoogleAuthProvider  } from "firebase/auth"
 import { useState } from "react"
 import { auth } from "@/firebase"
 
 export default function LogoutButton({styles}:{styles: string}){
 
     const provider = new GoogleAuthProvider()
-    const [session, setSession] = useState(null)
+    const [session, setSession] = useState<object | null>(null)
 
-    function signinOut(auth: any, provider: any, session: any){
+    type authType = typeof auth
+    type providerType = typeof provider
+    type sessionType = typeof session
+
+    auth.onAuthStateChanged((user)=>{
+        console.log(user)
+        setSession(user)
+    })
+    
+    function signinOut(auth: authType, provider: providerType, session: sessionType){
         if(session){signOut(auth)}
         else{signInWithPopup(auth, provider)}
     }
 
-    auth.onAuthStateChanged((user)=>{ setSession(user) })
 
     return(
       

@@ -6,7 +6,7 @@ import { chatListSchema } from "@/database/schemas/chatListSchema";
 
 export default function ChatCard({name, avatar, time, message}:chatListSchema){
     return(
-        <Link href={`/WhatsAppFK/chat`} className="flex items-center justify-between pl-4 my-2 w-full h-16 cursor-pointer " >
+        <Link href={`/WhatsAppFK/chat/marcita`} className="flex items-center justify-between pl-4 my-2 w-full h-16 cursor-pointer " >
             {
                 avatar ? <Image  className="w-12 h-12 rounded-full bg-slate-200" src={avatar} alt="Profile Image" />
                 : 

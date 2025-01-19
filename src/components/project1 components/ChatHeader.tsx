@@ -1,3 +1,5 @@
+"use client"
+
 import OptionsMenu from "./OptionsMenu";
 
 export default function ChatHeader(){
@@ -18,13 +20,13 @@ export default function ChatHeader(){
     ]
 
     return(
-        <div className="flex w-full py-2 items-center justify-around bg-green-500 border-b border-slate-800 sticky top-0 z-10">
+        <div className="flex w-full py-2 items-center justify-around bg-transparent border-b border-slate-800 sticky top-0 z-10">
             <div className="flex items-center justify-center pl-2 gap-1 cursor-pointer" >
                 <span className="material-symbols-rounded text-2xl" >arrow_back</span>
                 <div className="w-10 h-10 rounded-full bg-violet-500" ></div>
             </div>
             <div className="flex flex-col grow px-2 cursor-pointer" >
-                <h1>User Name</h1>
+                <h1>User name</h1>
                 {/* <h2>Last seen</h2> */}
             </div>
             <span className="material-symbols-rounded text-2xl px-2 cursor-pointer" >video_call</span>

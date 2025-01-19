@@ -17,10 +17,10 @@ export default function Layout({children}:{children: React.ReactNode}){
         <AuthProvider>
             <div className="flex flex-col grow w-full items-center justify-center bg-slate-400">
                 <div className="bg-slate-900 w-full flex-grow sm:my-4 sm:w-[420px] sm:h-[800px] flex flex-col items-center relative">
-                    { pathname === "/WhatsAppFK/chat" ? <ChatHeader/> : <WsHeader/> }
+                    { pathname.includes("/WhatsAppFK/chat") ? <ChatHeader/> : <WsHeader/> }
                     {children}
-                    { pathname === "/WhatsAppFK/chat" ? "" : <NewChatButton/> }
-                    { pathname === "/WhatsAppFK/chat" ? <ChatTextBar/> : <WsMenu/> }
+                    { pathname.includes("/WhatsAppFK/chat") ? "" : <NewChatButton/> }
+                    { pathname.includes("/WhatsAppFK/chat") ? <ChatTextBar/> : <WsMenu/> }
                 </div>
             </div>
         </AuthProvider>

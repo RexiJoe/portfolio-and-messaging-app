@@ -13,22 +13,22 @@ type options =
 const menuOptions: options[] = [
     {
         name: "Chats",
-        link: "/project1",
+        link: "/WhatsAppFK",
         icon: "chat",
     },
     {
         name: "Updates",
-        link: "/project1/updates",
+        link: "/WhatsAppFK/updates",
         icon: "maps_ugc",
     },
     {
         name: "Comunities",
-        link: "/project1/communities",
+        link: "/WhatsAppFK/communities",
         icon: "groups",
     },
     {
         name: "Calls",
-        link: "/project1/calls",
+        link: "/WhatsAppFK/calls",
         icon: "call",
     },    
 ]

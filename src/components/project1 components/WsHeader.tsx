@@ -5,14 +5,43 @@ import { usePathname } from "next/navigation";
 
 export default function WsHeader(){
 
+    type optionsSchema = {
+        option: string,
+        link: string
+    }
+
+    const options: optionsSchema[] = [
+        {
+            option: "New Group",
+            link: "/project1/options/new-group"
+        },
+        {
+            option: "New broadcast",
+            link: "/project1/options/new-broadcast"
+        },
+        {
+            option: "Linked devices",
+            link: "/project1/options/linked-devices"
+        },
+        {
+            option: "Starred messages",
+            link: "/project1/options/starred-messages"
+        },
+        {
+            option: "Settings",
+            link: "/project1/options/settings"
+        },
+    ]
+
+
     const pathname = usePathname()
     
         const isTitle = (path: string): string | undefined=>{
             switch(path){
-                case "/project1" : return "WhatsApp"
-                case "/project1/updates" : return "Updates"
-                case "/project1/communities" : return "Communities"
-                case "/project1/calls" : return "Calls"
+                case "/WhatsAppFK" : return "WhatsApp"
+                case "/WhatsAppFK/updates" : return "Updates"
+                case "/WhatsAppFK/communities" : return "Communities"
+                case "/WhatsAppFK/calls" : return "Calls"
             }
         }
 
@@ -26,7 +55,7 @@ export default function WsHeader(){
 
                 <span className="material-symbols-rounded text-2xl px-2 cursor-pointer" >search</span>
 
-                <OptionsMenu/>
+                <OptionsMenu optionsList={options} />
             </div>
         </div>
     )

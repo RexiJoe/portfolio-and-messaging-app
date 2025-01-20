@@ -1,6 +1,7 @@
 "use client"
 
 import OptionsMenu from "./OptionsMenu";
+import Link from "next/link";
 
 export default function ChatHeader(){
 
@@ -22,7 +23,7 @@ export default function ChatHeader(){
     return(
         <div className="flex w-full py-2 items-center justify-around bg-transparent border-b border-slate-800 sticky top-0 z-10">
             <div className="flex items-center justify-center pl-2 gap-1 cursor-pointer" >
-                <span className="material-symbols-rounded text-2xl" >arrow_back</span>
+                <Link href="/WhatsAppFK" className="material-symbols-rounded text-2xl" >arrow_back</Link>
                 <div className="w-10 h-10 rounded-full bg-violet-500" ></div>
             </div>
             <div className="flex flex-col grow px-2 cursor-pointer" >

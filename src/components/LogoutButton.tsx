@@ -2,8 +2,11 @@
 import { signOut, signInWithPopup, GoogleAuthProvider  } from "firebase/auth"
 import { useState } from "react"
 import { auth } from "@/firebase"
+import { useRouter } from "next/navigation"
 
 export default function LogoutButton({styles}:{styles: string}){
+
+    const router = useRouter()
 
     const provider = new GoogleAuthProvider()
     const [session, setSession] = useState<object | null>(null)
@@ -13,12 +16,16 @@ export default function LogoutButton({styles}:{styles: string}){
     type sessionType = typeof session
 
     auth.onAuthStateChanged((user)=>{
-        console.log(user)
         setSession(user)
     })
+
+    function logout(){
+        signOut(auth)
+        router.push("/")
+    }
     
     function signinOut(auth: authType, provider: providerType, session: sessionType){
-        if(session){signOut(auth)}
+        if(session){logout()}
         else{signInWithPopup(auth, provider)}
     }
 

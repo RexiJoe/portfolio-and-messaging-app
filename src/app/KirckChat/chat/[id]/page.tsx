@@ -15,7 +15,7 @@ const chats: chatSchema[] = [
 
 export default function ChatPage(){
     return(
-    <div className="flex flex-col-reverse relative w-full h-full px-4 gap-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent bg-transparent" >
+    <div className="flex flex-col-reverse relative w-full h-full px-4 pb-2 gap-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent bg-gray-950 bg-opacity-80" >
         {chats.reverse().map(({message, user})=>{return <ChatMessage message={message} user={user} key={message} /> })}
     </div>
     )

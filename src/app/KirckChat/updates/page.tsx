@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function UpdatesPage(){
     return(
-        <div className="w-full h-full overflow-y-scroll px-4 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
+        <div className="w-full h-full overflow-y-scroll px-4 bg-gray-950 bg-opacity-80 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
             <h1 className="w-full my-4 text-xl text-white font-roboto font-semibold" >Status</h1>
             <MyStatusCard/>
             <RecentUpdates/>

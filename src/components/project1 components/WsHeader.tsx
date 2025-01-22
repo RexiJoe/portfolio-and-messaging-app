@@ -38,17 +38,17 @@ export default function WsHeader(){
     
         const isTitle = (path: string): string | undefined=>{
             switch(path){
-                case "/WhatsAppFK" : return "WhatsApp"
-                case "/WhatsAppFK/updates" : return "Updates"
-                case "/WhatsAppFK/communities" : return "Communities"
-                case "/WhatsAppFK/calls" : return "Calls"
+                case "/KirckChat" : return "KirckChat"
+                case "/KirckChat/updates" : return "Kirck Updates"
+                case "/KirckChat/communities" : return "Kirck Communities"
+                case "/KirckChat/calls" : return "Kirck Calls"
             }
         }
 
         const title = isTitle(pathname)
 
     return(
-        <div className="flex w-full h-14 py-2 items-center justify-between bg-slate-900 border-b border-slate-800 sticky top-0 z-10 " >
+        <div className="flex w-full h-14 py-2 items-center justify-between bg-[#170D30] border-b border-purple-950 sticky top-0 z-10 " >
             <h1 className="pl-4 text-2xl font-medium text-white " >{title}</h1>
             <div className="flex items-center justify-between pr-1" >
                 <span className="material-symbols-rounded text-2xl px-2 cursor-pointer" >photo_camera</span>

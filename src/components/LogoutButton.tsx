@@ -1,8 +1,9 @@
 "use client"
 import { signOut, signInWithPopup, GoogleAuthProvider  } from "firebase/auth"
 import { useState } from "react"
-import { auth } from "@/firebase"
+import { auth, db } from "@/firebase"
 import { useRouter } from "next/navigation"
+import { collection, getDocs, setDoc, doc } from "firebase/firestore"
 
 export default function LogoutButton({styles}:{styles: string}){
 
@@ -14,9 +15,16 @@ export default function LogoutButton({styles}:{styles: string}){
     type authType = typeof auth
     type providerType = typeof provider
     type sessionType = typeof session
+    type contactType = {
+        email: string,
+        name: string,
+        userName: string
+
+    }
 
     auth.onAuthStateChanged((user)=>{
         setSession(user)
+        
     })
 
     function logout(){
@@ -26,7 +34,27 @@ export default function LogoutButton({styles}:{styles: string}){
     
     function signinOut(auth: authType, provider: providerType, session: sessionType){
         if(session){logout()}
-        else{signInWithPopup(auth, provider)}
+        else{
+            signInWithPopup(auth, provider).then((data)=>{
+                const user = data.user
+                const email = user.email?.toString() as string
+                const name = user.displayName
+                const collectionRef = collection(db, email as string)
+                const querySnapshot = getDocs(collectionRef)
+                const meContact: contactType = {
+                    email: email,
+                    name: name as string,
+                    userName: "Me"
+                }
+                querySnapshot.then((collection)=>{
+                    if(collection.empty){
+                        setDoc(doc(db, email, "contacts"), meContact)
+                    }
+                })
+                console.log()
+            })
+
+        }
     }
 
 

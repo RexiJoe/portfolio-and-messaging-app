@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex flex-col grow w-full items-center justify-center bg-slate-400">
-      <div className="bg-purple-800 w-full flex-grow sm:my-4 sm:w-[420px] sm:h-[800px] flex flex-col items-center relative">
+      <div className="bg-[#090512] w-full flex-grow sm:my-4 sm:w-[420px] sm:h-[800px] flex flex-col items-center relative">
         {pathname.includes("/KirckChat/chat") ? <ChatHeader /> : <WsHeader />}
         {children}
         {pathname.includes("/KirckChat/chat") ? "" : <NewChatButton />}

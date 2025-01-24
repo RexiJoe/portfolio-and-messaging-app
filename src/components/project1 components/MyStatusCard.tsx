@@ -11,7 +11,7 @@ export default function MyStatusCard(){
                 {
                     statusImg ? <Image src={statusImg} alt="Status" className="w-12 h-12 rounded-full bg-white" /> : <span className="material-symbols-rounded rounded-full bg-slate-400 w-12 h-12 flex items-center justify-center text-4xl " >photo</span>
                 }
-                <div className="w-6 h-6 rounded-full bg-violet-500 absolute -bottom-1 -right-1 flex items-center justify-center text-lg text-purple-950 border border-purple-950 " >
+                <div className="w-6 h-6 rounded-full bg-purple-700 absolute -bottom-1 -right-1 flex items-center justify-center text-lg text-[#090512]  border border-purple-950 " >
                     <h1>+</h1>
                 </div>
             </div>

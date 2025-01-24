@@ -43,7 +43,7 @@ export default function ContactsPage(){
     },[])
 
     return(
-        <div className="flex flex-col w-full grow overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent bg-gray-950 bg-opacity-80" >
+        <div className="flex flex-col w-full grow bg-[090512] overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent" >
             <AddContactInput/>
 
             <p className="ml-3 text-sm font-semibold text-gray-400 mb-4" >Contacts</p>

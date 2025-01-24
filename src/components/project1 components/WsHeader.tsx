@@ -49,7 +49,7 @@ export default function WsHeader(){
         const title = isTitle(pathname)
 
     return(
-        <div className="flex w-full h-14 py-2 items-center justify-between bg-[#170D30] border-b border-purple-950 sticky top-0 z-10 " >
+        <div className="flex w-full h-14 py-2 items-center justify-between bg-[#090512] border-b border-purple-950 sticky top-0 z-10 " >
             <h1 className="pl-4 text-2xl font-medium text-white " >{title}</h1>
             <div className="flex items-center justify-between pr-1" >
                 {pathname.includes("/KirckChat/contacts") ? "" : <span className="material-symbols-rounded text-2xl px-2 cursor-pointer" >photo_camera</span>}

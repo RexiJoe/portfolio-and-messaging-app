@@ -116,7 +116,7 @@ export default function Project1(){
     
     return(
 
-        <div className="flex flex-col w-full grow overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent bg-gray-950 bg-opacity-80" >
+        <div className="flex flex-col w-full grow overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent" >
             <WsLists/>
             {
                 chats.map((chat)=>(<ChatCard {...chat} key={chat.name} />))

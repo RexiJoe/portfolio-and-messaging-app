@@ -38,7 +38,7 @@ export default function WsMenu(){
     const pathname = usePathname()
 
     return(
-        <div className="w-full py-2 flex items-center justify-around sticky bottom-0 border-t bg-[#170D30] border-purple-950 " >
+        <div className="w-full py-2 flex items-center justify-around sticky bottom-0 border-t bg-[#170D30]g bg-[#090512] border-purple-950 " >
             {
                 menuOptions.map(({name, link, icon})=>(
                     <Link href={link} key={link} className="flex flex-col w-18 items-center justify-items-center" >

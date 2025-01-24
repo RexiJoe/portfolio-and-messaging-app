@@ -1,11 +1,35 @@
 "use client"
 
+import { auth } from "@/firebase"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
+import Image from "next/image"
 
 type optionsSchema = {
     option: string,
     link: string
+}
+
+function UserOption(){
+
+    const [image, setImg] = useState("/iufsaduif")
+    const [username, setName] = useState("hi")
+
+    useEffect(()=>{
+        auth.onAuthStateChanged((user)=>{
+            const img = user?.photoURL?.toString()
+            const name = user?.displayName
+            setImg(img as string)
+            setName(name as string)
+        })
+    },[])
+
+    return(
+        <div className="flex gap-2 text-sm items-center" >
+            <Image className="rounded-full" src={image} alt={username} width={30} height={30} />
+            <h1>{username}</h1>
+        </div>
+    )
 }
 
 export default function OptionsMenu({optionsList}:{optionsList: optionsSchema[]}){
@@ -34,6 +58,7 @@ export default function OptionsMenu({optionsList}:{optionsList: optionsSchema[]}
                 more_vert
             </span>
             <div className={`${isOpen ? "flex" : "hidden"} flex-col w-48 absolute top-10 right-2 pl-4 py-5 gap-5 rounded-xl h-auto bg-purple-950 bg-opacity-95`} >
+                <UserOption/>
                 {
                     optionsList.map(({option, link})=>( <Link href={link} key={option} className="cursor-pointer" >{option}</Link> ))
                 }

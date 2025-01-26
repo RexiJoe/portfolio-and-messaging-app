@@ -21,11 +21,11 @@ export default function ContactsPage(){
         
         auth.onAuthStateChanged((user)=>{
             async function getDocuments(user: typeof auth.currentUser){
-                console.log(user)
-            
+                
                 if(user && user.email){
                     const docRef = doc(db, user.email, "contacts")
                     const docSnap = await getDoc(docRef)
+                    console.log()
             
                     if(docSnap.exists()){
                         const docData = docSnap.data()

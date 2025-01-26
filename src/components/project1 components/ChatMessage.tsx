@@ -1,20 +1,36 @@
+"use client"
+
 import { usePathname } from "next/navigation"
+import { Timestamp } from "firebase/firestore"
+// import { useEffect, useState } from "react"
 
 type chatSchema = {
     message: string,
-    user: string
+    user: string,
+    email: string,
+    time: Timestamp
 }
 
-export default function ChatMessage({message, user}: chatSchema){
+export default function ChatMessage({message, email, time}: chatSchema){
 
-   const pathname = usePathname()
-   const segmentedPath = pathname.split("/")
-   const id = segmentedPath[segmentedPath.length - 1]
+    const pathname = usePathname()
+    const segmentedPath = pathname.split("/")
+    const id = segmentedPath[segmentedPath.length - 1]
+    let date = ""
+    
+    if(time !== null){
+        date = time.toDate().toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})
+    }else{
+        date = "no time"
+    }
+
 
     return(
-        <div className={`flex justify-end items-center ${user !== id ? "self-end bg-purple-900" : "bg-slate-700"} gap-2 flex-wrap w-fit max-w-64 px-2 py-1 rounded-lg`} >
-            <p className="" >{message}</p>
-            <p className="flex items-end min-w-fit h-full text-xs font-medium text-gray-400" >11:30 AM</p>
+        <div className={`flex justify-end items-center ${email !== id ? "self-end bg-purple-900" : "bg-slate-700"} gap-2 w-fit max-w-64 px-2 py-1 rounded-lg`} >
+            <div className="flex flex-wrap w-fit h-fit gap-2" >
+                {message}
+                <p className="flex grow items-end min-w-fit justify-end text-xs font-medium text-gray-400" >{date}</p>
+            </div>
         </div>
     )
 }

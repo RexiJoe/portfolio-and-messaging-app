@@ -5,5 +5,5 @@ export type chatListSchema = {
     avatar: string,
     time: string,
     message: string
-    id?: string
+    email: string
 }

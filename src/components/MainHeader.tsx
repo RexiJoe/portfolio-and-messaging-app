@@ -18,7 +18,7 @@ export default function MainHeader() {
   }, []);
 
   return (
-    <div className="w-full flex justify-around items-center border-b border-slate-800 bg-slate-900 ">
+    <div className="w-full flex text-white justify-around items-center border-b border-slate-800 bg-slate-900 ">
       <div className="w-full sm:w-auto gap-1 py-2 flex flex-col items-center justify-around sm:justify-center text-2xl sm:pl-10 sm:flex-row sm:h-16 sm:gap-40">
         <Link href="/" className="text-white font-semibold">
           Daniel Ayala

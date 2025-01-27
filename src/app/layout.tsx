@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full" >
-      <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.className } antialiased flex flex-col h-full`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.className } text-white antialiased flex flex-col h-full`}>
         <MainHeader/>
         {children}
       </body>

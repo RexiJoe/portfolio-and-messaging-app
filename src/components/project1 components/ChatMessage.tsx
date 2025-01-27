@@ -27,7 +27,7 @@ export default function ChatMessage({message, email, time}: chatSchema){
 
     return(
         <div className={`flex justify-end items-center ${email !== id ? "self-end bg-purple-900" : "bg-slate-700"} gap-2 w-fit max-w-64 px-2 py-1 rounded-lg`} >
-            <div className="flex flex-wrap w-fit h-fit gap-2" >
+            <div className="flex flex-wrap w-fit h-fit gap-2 text-white" >
                 {message}
                 <p className="flex grow items-end min-w-fit justify-end text-xs font-medium text-gray-400" >{date}</p>
             </div>

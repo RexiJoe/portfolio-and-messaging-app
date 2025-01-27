@@ -11,7 +11,8 @@ type chatsSchema = {
     name: string,
     img: string,
     time: Timestamp,
-    email: string
+    email: string,
+    message: string
 
 }
 
@@ -26,7 +27,7 @@ export default function Project1(){
             const email = user?.email as string
             const docRef = doc(db, email, "chats")
             const collRef = collection(docRef, "chatlist")
-            const q = query(collRef, orderBy("time", "asc"))
+            const q = query(collRef, orderBy("time", "desc"))
     
             const unsubscribeSnapshot = onSnapshot(q, (snapshot)=>{
             const fetchedChats: chatsSchema[] = []
@@ -47,7 +48,7 @@ export default function Project1(){
         <div className="flex flex-col w-full grow overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent" >
             <WsLists/>
             {
-                chats.map((chat)=>{ return <ChatCard name={chat.name} email={chat.email} img={chat.img} time={chat.time} key={chat.id} /> })
+                chats.map((chat)=>{ return <ChatCard name={chat.name} email={chat.email} img={chat.img} time={chat.time} message={chat.message} key={chat.id}/> })
             }
         </div>
 

@@ -6,12 +6,13 @@ type chatsSchema = {
     name: string,
     img: string,
     time: Timestamp,
-    email: string
+    email: string,
+    message: string
 }
 
-export default function ChatCard({name, img, time, email}:chatsSchema){
+export default function ChatCard({name, img, time, email, message}:chatsSchema){
 
-    const date = time.toDate().toLocaleDateString()
+    const date = time.toDate().toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})
 
     return(
         <Link href={`/KirckChat/chat/${email}`} className="flex items-center justify-between pl-4 my-2 w-full h-16 cursor-pointer" >
@@ -28,7 +29,7 @@ export default function ChatCard({name, img, time, email}:chatsSchema){
                 </div>
                 <div className="flex flex-grow h-1/2 items-center px-2 pb-1" >
                     <div className="w-4 h-4 bg-green-400 rounded-full mr-2 " ></div>
-                    <p className="text-sm text-gray-300  " >Message goes here</p>
+                    <p className="text-sm text-gray-300 h-5 w-60 overflow-hidden " >{message}</p>
                </div>
             </div>
         </Link>

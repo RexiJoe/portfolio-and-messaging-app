@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import { usePathname } from "next/navigation"
-import { doc, getDoc, collection, addDoc, serverTimestamp, Timestamp, setDoc } from "firebase/firestore"
+import { doc, getDoc, collection, addDoc, serverTimestamp, Timestamp, setDoc, updateDoc } from "firebase/firestore"
 import { db, auth } from "@/firebase"
 
 type chatsSchema = {
@@ -39,7 +39,9 @@ export default function ChatTextBar(){
         // const chatId = remitentId.replace(".com", "")
 
         if(!chatlistDoc.exists()){
-            setDoc(chatlistDocRef, {...userData, time: serverTimestamp()})
+            setDoc(chatlistDocRef, {...userData, time: serverTimestamp(), message: value})
+        }else{
+            updateDoc(chatlistDocRef,{...userData, time: serverTimestamp(), message: value} )
         }
 
         const remitDocRef = doc(db, remitentId, "chats")
@@ -55,7 +57,9 @@ export default function ChatTextBar(){
         }
 
         if(!remitChatlistDoc.exists()){
-            setDoc(remitChatlistDocRef, senderData)
+            setDoc(remitChatlistDocRef, {...senderData, message: value})
+        }else{
+            updateDoc(remitChatlistDocRef, {...senderData, message: value})
         }
     }
     

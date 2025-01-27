@@ -49,7 +49,7 @@ export default function ChatHeader(){
 
 
     return(
-        <div className="flex w-full py-2 items-center justify-around bg-[#090512] border-b border-purple-950 sticky top-0 z-10">
+        <div className="flex w-full py-2 items-center justify-around bg-[#090512]g bg-black border-b border-purple-950 sticky top-0 z-10">
             <div className="flex items-center justify-center pl-2 gap-1 cursor-pointer" >
                 <Link href="/KirckChat" className="material-symbols-rounded text-2xl" >arrow_back</Link>
                 <Image src={user?.img || "/images/userFallBack"} width={40} height={40} alt={user?.email || "User Image"} className="w-10 h-10 rounded-full bg-[#090512] border-2 border-[#090512] " />

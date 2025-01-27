@@ -1,10 +1,11 @@
 "use client"
 
 import ChatMessage from "@/components/project1 components/ChatMessage"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { usePathname } from "next/navigation"
 import { db, auth } from "@/firebase"
 import { doc, collection, onSnapshot, query, orderBy, Timestamp} from "firebase/firestore"
+
 
 
 type chatsSchema = {
@@ -26,8 +27,12 @@ export default function ChatPage(){
     const pathname = usePathname()
     const segmentedPath = pathname.split("/")
     const collectionId = segmentedPath[segmentedPath.length - 1]
+    const refPoint = useRef<HTMLDivElement>(null)
+
+
     
     useEffect(()=>{
+
         const unsubscribeAuth = auth.onAuthStateChanged((user)=>{
             async function getChat(){
                 const email = user?.email
@@ -44,17 +49,30 @@ export default function ChatPage(){
                         setChats(fetchedChats)  
                         // console.log(fetchedChats)
                     })
+                    
                 })
                 return ()=>{ unsubscribeSnapshot() }
             }
             getChat()
         })
 
+
         return ()=>{unsubscribeAuth()}
     },[])
 
+    useEffect(()=>{
+        if(refPoint.current){
+            setTimeout(()=>{
+                requestAnimationFrame(()=>{
+                    refPoint.current?.scrollIntoView({ behavior: "instant", block: "end" })
+                })
+            })
+        }
+    },[chats])
+
     return(
-    <div className="flex flex-col-reverse relative w-full h-full px-4 pb-2 gap-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent " >
+    <div className="flex flex-col-reverse w-full h-full px-4 pb-2 gap-2 overflow-y-scroll scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent " >
+        <div ref={refPoint} ></div>
         {chats.map(({message, name, id, email, time})=>{return <ChatMessage message={message} user={name} email={email} key={id} time={time} /> })}
     </div>
     )
